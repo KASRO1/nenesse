@@ -6,7 +6,7 @@ $name = $matches[2];
 add_views($name);
 $img = get_src_photo($name);
 $products = get_info_product_by_name($name);
-//$img = get_src_photo($name);
+$img = get_src_photo($name);
 
 ?>
 <!doctype html>
@@ -3180,182 +3180,272 @@ $products = get_info_product_by_name($name);
                                         <div data-product-images="" data-zoom="true" data-has-slideshow="true">
                                             <div class="product__photos product__photos-template--17917053370634__main product__photos--beside">
 
-                                                <div class="product__main-photos" data-product-single-media-group="">
-                                                    <div data-product-photos="" class="product-slideshow flickity-enabled is-draggable" id="ProductPhotos-template--17917053370634__main" tabindex="0">
-                                                        <div class="flickity-viewport" style="height: 602px; touch-action: pan-y;">
-                                                            <div class="flickity-slider" style="left: 0px; transform: translateX(-400%);">
-                                                                <div class="product-main-slide starting-slide" data-index="0" style="position: absolute; left: 0px; transform: translateX(0%);" aria-hidden="true" tabindex="-1">
+                                                        <div class="product__main-photos" data-product-single-media-group="">
+                                                            <div data-product-photos=""
+                                                                class="product-slideshow flickity-enabled is-draggable"
+                                                                id="ProductPhotos-template--17917053370634__main" tabindex="0">
+                                                                <div class="flickity-viewport"
+                                                                    style="height: 602px; touch-action: pan-y;">
+                                                                    <div class="flickity-slider"
+                                                                        style="left: 0px; transform: translateX(-400%);">
+                                                                        <div class="product-main-slide starting-slide"
+                                                                            data-index="0"
+                                                                            style="position: absolute; left: 0px; transform: translateX(0%);"
+                                                                            aria-hidden="true" tabindex="-1">
 
-                                                                    <div data-product-image-main="" class="product-image-main" data-size="square">
-                                                                        <div class="image-wrap" style="height: 0; padding-bottom: 100.0%;">
-                                                                            <img class="photoswipe__image lazyautosizes lazyloaded" srcset="<?php echo $img[0] ?> 1080w">
+                                                                            <div data-product-image-main=""
+                                                                                class="product-image-main" data-size="square">
+                                                                                <div class="image-wrap"
+                                                                                    style="height: 0; padding-bottom: 100.0%;">
+                                                                                    <img class="photoswipe__image lazyautosizes lazyloaded"
+                                                                                        srcset="<?php echo $img[0] ?> 1080w">
 
-                                                                            <noscript>
-                                                                                <img class="lazyloaded" src="//www.neness-shop.de/cdn/shop/files/182AC_21574842-1388-475e-9366-ca6775eec26d_800x.jpg?v=1691797892" alt="ALLIEN WORLD - 182">
-                                                                            </noscript><button type="button" class="btn btn--secondary btn--circle js-photoswipe__zoom product__photo-zoom" aria-label="Zoom">
-                                                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64">
-                                                                                    <defs>
-                                                                                        <style>
-                                                                                            .cls-1 {
-                                                                                                fill: none;
-                                                                                                stroke: #000;
-                                                                                                stroke-miterlimit: 10;
-                                                                                                stroke-width: 2px
-                                                                                            }
-                                                                                        </style>
-                                                                                    </defs>
-                                                                                    <path class="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42">
-                                                                                    </path>
-                                                                                </svg>
-                                                                            </button>
+                                                                                    <noscript>
+                                                                                        <img class="lazyloaded"
+                                                                                            src="//www.neness-shop.de/cdn/shop/files/182AC_21574842-1388-475e-9366-ca6775eec26d_800x.jpg?v=1691797892"
+                                                                                            alt="ALLIEN WORLD - 182">
+                                                                                    </noscript><button type="button"
+                                                                                        class="btn btn--secondary btn--circle js-photoswipe__zoom product__photo-zoom"
+                                                                                        aria-label="Zoom">
+                                                                                        <svg aria-hidden="true" focusable="false"
+                                                                                            role="presentation"
+                                                                                            class="icon icon-search"
+                                                                                            viewBox="0 0 64 64">
+                                                                                            <defs>
+                                                                                                <style>
+                                                                                                    .cls-1 {
+                                                                                                        fill: none;
+                                                                                                        stroke: #000;
+                                                                                                        stroke-miterlimit: 10;
+                                                                                                        stroke-width: 2px
+                                                                                                    }
+                                                                                                </style>
+                                                                                            </defs>
+                                                                                            <path class="cls-1"
+                                                                                                d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42">
+                                                                                            </path>
+                                                                                        </svg>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="product-main-slide secondary-slide"
+                                                                            data-index="1" aria-hidden="true"
+                                                                            style="position: absolute; left: 0px; transform: translateX(100%);">
+
+                                                                            <div data-product-image-main=""
+                                                                                class="product-image-main" data-size="square">
+                                                                                <div class="image-wrap"
+                                                                                    style="height: 0; padding-bottom: 100.0%;"><img
+                                                                                        class="photoswipe__image lazyautosizes lazyloaded"
+                                                                                        sizes="602px"
+                                                                                        srcset="<?php echo $img[0] ?> 1080w">
+
+                                                                                    <noscript>
+                                                                                        <img class="lazyloaded"
+                                                                                            src="//www.neness-shop.de/cdn/shop/files/N182-nuty_800x.png?v=1691797892"
+                                                                                            alt="ALLIEN WORLD - 182">
+                                                                                    </noscript><button type="button"
+                                                                                        class="btn btn--secondary btn--circle js-photoswipe__zoom product__photo-zoom"
+                                                                                        aria-label="Zoom">
+                                                                                        <svg aria-hidden="true" focusable="false"
+                                                                                            role="presentation"
+                                                                                            class="icon icon-search"
+                                                                                            viewBox="0 0 64 64">
+                                                                                            <defs>
+                                                                                                <style>
+                                                                                                    .cls-1 {
+                                                                                                        fill: none;
+                                                                                                        stroke: #000;
+                                                                                                        stroke-miterlimit: 10;
+                                                                                                        stroke-width: 2px
+                                                                                                    }
+                                                                                                </style>
+                                                                                            </defs>
+                                                                                            <path class="cls-1"
+                                                                                                d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42">
+                                                                                            </path>
+                                                                                        </svg>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="product-main-slide secondary-slide"
+                                                                            data-index="2" aria-hidden="true"
+                                                                            style="position: absolute; left: 0px; transform: translateX(200%);">
+
+                                                                            <div data-product-image-main=""
+                                                                                class="product-image-main" data-size="square">
+                                                                                <div class="image-wrap"
+                                                                                    style="height: 0; padding-bottom: 100.0%;"><img
+                                                                                        class="photoswipe__image lazyautosizes lazyloaded"
+                                                                                        data-aspectratio="1.0" data-sizes="auto"
+                                                                                        sizes="602px"
+                                                                                        srcset="<?php echo $img[0] ?> 1080w">
+
+                                                                                    <noscript>
+                                                                                        <img class="lazyloaded"
+                                                                                            src="//www.neness-shop.de/cdn/shop/files/N182_800x.png?v=1692607129"
+                                                                                            alt="ALLIEN WORLD - 182">
+                                                                                    </noscript><button type="button"
+                                                                                        class="btn btn--secondary btn--circle js-photoswipe__zoom product__photo-zoom"
+                                                                                        aria-label="Zoom">
+                                                                                        <svg aria-hidden="true" focusable="false"
+                                                                                            role="presentation"
+                                                                                            class="icon icon-search"
+                                                                                            viewBox="0 0 64 64">
+                                                                                            <defs>
+                                                                                                <style>
+                                                                                                    .cls-1 {
+                                                                                                        fill: none;
+                                                                                                        stroke: #000;
+                                                                                                        stroke-miterlimit: 10;
+                                                                                                        stroke-width: 2px
+                                                                                                    }
+                                                                                                </style>
+                                                                                            </defs>
+                                                                                            <path class="cls-1"
+                                                                                                d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42">
+                                                                                            </path>
+                                                                                        </svg>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="product-main-slide secondary-slide"
+                                                                            data-index="3"
+                                                                            style="position: absolute; left: 0px; transform: translateX(300%);"
+                                                                            tabindex="-1" aria-hidden="true">
+
+                                                                            <div data-product-image-main=""
+                                                                                class="product-image-main" data-size="square">
+                                                                                <div class="image-wrap"
+                                                                                    style="height: 0; padding-bottom: 85.33333333333333%;">
+                                                                                    <img class="photoswipe__image lazyautosizes lazyloaded"
+                                                                                        sizes="602px"
+                                                                                        srcset="<?php echo $img[0] ?> 1080w">
+
+                                                                                    <noscript>
+                                                                                        <img class="lazyloaded"
+                                                                                            src="<?php echo $img[0] ?>"
+                                                                                            alt="ALLIEN WORLD - 182">
+                                                                                    </noscript><button type="button"
+                                                                                        class="btn btn--secondary btn--circle js-photoswipe__zoom product__photo-zoom"
+                                                                                        aria-label="Zoom">
+                                                                                        <svg aria-hidden="true" focusable="false"
+                                                                                            role="presentation"
+                                                                                            class="icon icon-search"
+                                                                                            viewBox="0 0 64 64">
+                                                                                            <defs>
+                                                                                                <style>
+                                                                                                    .cls-1 {
+                                                                                                        fill: none;
+                                                                                                        stroke: #000;
+                                                                                                        stroke-miterlimit: 10;
+                                                                                                        stroke-width: 2px
+                                                                                                    }
+                                                                                                </style>
+                                                                                            </defs>
+                                                                                            <path class="cls-1"
+                                                                                                d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42">
+                                                                                            </path>
+                                                                                        </svg>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="product-main-slide secondary-slide is-selected"
+                                                                            data-index="4"
+                                                                            style="position: absolute; left: 0px; transform: translateX(400%);"
+                                                                            tabindex="0">
+
+                                                                            <div data-product-image-main=""
+                                                                                class="product-image-main" data-size="square">
+                                                                                <div class="image-wrap"
+                                                                                    style="height: 0; padding-bottom: 85.33333333333333%;">
+                                                                                    <img class="photoswipe__image lazyautosizes lazyloaded"
+                                                                                        data-sizes="auto"
+                                                                                        srcset="<?php echo $img[0] ?> 1080w">
+
+                                                                                    <noscript>
+                                                                                        <img class="lazyloaded"
+                                                                                            src="//www.neness-shop.de/cdn/shop/files/WhatsAppImage2023-06-06at19.38.54_9d6e72d7-7330-47f6-b362-493ecc1c2b2f_800x.jpg?v=1692607129"
+                                                                                            alt="ALLIEN WORLD - 182">
+                                                                                    </noscript><button type="button"
+                                                                                        class="btn btn--secondary btn--circle js-photoswipe__zoom product__photo-zoom"
+                                                                                        aria-label="Zoom">
+                                                                                        <svg aria-hidden="true" focusable="false"
+                                                                                            role="presentation"
+                                                                                            class="icon icon-search"
+                                                                                            viewBox="0 0 64 64">
+                                                                                            <defs>
+                                                                                                <style>
+                                                                                                    .cls-1 {
+                                                                                                        fill: none;
+                                                                                                        stroke: #000;
+                                                                                                        stroke-miterlimit: 10;
+                                                                                                        stroke-width: 2px
+                                                                                                    }
+                                                                                                </style>
+                                                                                            </defs>
+                                                                                            <path class="cls-1"
+                                                                                                d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42">
+                                                                                            </path>
+                                                                                        </svg>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+
                                                                         </div>
                                                                     </div>
-
                                                                 </div>
-                                                                <div class="product-main-slide secondary-slide" data-index="1" aria-hidden="true" style="position: absolute; left: 0px; transform: translateX(100%);">
-
-                                                                    <div data-product-image-main="" class="product-image-main" data-size="square">
-                                                                        <div class="image-wrap" style="height: 0; padding-bottom: 100.0%;"><img class="photoswipe__image lazyautosizes lazyloaded" sizes="602px" srcset="<?php echo $img[0] ?> 1080w">
-
-                                                                            <noscript>
-                                                                                <img class="lazyloaded" src="//www.neness-shop.de/cdn/shop/files/N182-nuty_800x.png?v=1691797892" alt="ALLIEN WORLD - 182">
-                                                                            </noscript><button type="button" class="btn btn--secondary btn--circle js-photoswipe__zoom product__photo-zoom" aria-label="Zoom">
-                                                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64">
-                                                                                    <defs>
-                                                                                        <style>
-                                                                                            .cls-1 {
-                                                                                                fill: none;
-                                                                                                stroke: #000;
-                                                                                                stroke-miterlimit: 10;
-                                                                                                stroke-width: 2px
-                                                                                            }
-                                                                                        </style>
-                                                                                    </defs>
-                                                                                    <path class="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42">
-                                                                                    </path>
-                                                                                </svg>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="product-main-slide secondary-slide" data-index="2" aria-hidden="true" style="position: absolute; left: 0px; transform: translateX(200%);">
-
-                                                                    <div data-product-image-main="" class="product-image-main" data-size="square">
-                                                                        <div class="image-wrap" style="height: 0; padding-bottom: 100.0%;"><img class="photoswipe__image lazyautosizes lazyloaded" data-aspectratio="1.0" data-sizes="auto" sizes="602px" srcset="<?php echo $img[0] ?> 1080w">
-
-                                                                            <noscript>
-                                                                                <img class="lazyloaded" src="//www.neness-shop.de/cdn/shop/files/N182_800x.png?v=1692607129" alt="ALLIEN WORLD - 182">
-                                                                            </noscript><button type="button" class="btn btn--secondary btn--circle js-photoswipe__zoom product__photo-zoom" aria-label="Zoom">
-                                                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64">
-                                                                                    <defs>
-                                                                                        <style>
-                                                                                            .cls-1 {
-                                                                                                fill: none;
-                                                                                                stroke: #000;
-                                                                                                stroke-miterlimit: 10;
-                                                                                                stroke-width: 2px
-                                                                                            }
-                                                                                        </style>
-                                                                                    </defs>
-                                                                                    <path class="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42">
-                                                                                    </path>
-                                                                                </svg>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="product-main-slide secondary-slide" data-index="3" style="position: absolute; left: 0px; transform: translateX(300%);" tabindex="-1" aria-hidden="true">
-
-                                                                    <div data-product-image-main="" class="product-image-main" data-size="square">
-                                                                        <div class="image-wrap" style="height: 0; padding-bottom: 85.33333333333333%;">
-                                                                            <img class="photoswipe__image lazyautosizes lazyloaded" sizes="602px" srcset="<?php echo $img[0] ?> 1080w">
-
-                                                                            <noscript>
-                                                                                <img class="lazyloaded" src="<?php echo $img[0] ?>" alt="ALLIEN WORLD - 182">
-                                                                            </noscript><button type="button" class="btn btn--secondary btn--circle js-photoswipe__zoom product__photo-zoom" aria-label="Zoom">
-                                                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64">
-                                                                                    <defs>
-                                                                                        <style>
-                                                                                            .cls-1 {
-                                                                                                fill: none;
-                                                                                                stroke: #000;
-                                                                                                stroke-miterlimit: 10;
-                                                                                                stroke-width: 2px
-                                                                                            }
-                                                                                        </style>
-                                                                                    </defs>
-                                                                                    <path class="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42">
-                                                                                    </path>
-                                                                                </svg>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="product-main-slide secondary-slide is-selected" data-index="4" style="position: absolute; left: 0px; transform: translateX(400%);" tabindex="0">
-
-                                                                    <div data-product-image-main="" class="product-image-main" data-size="square">
-                                                                        <div class="image-wrap" style="height: 0; padding-bottom: 85.33333333333333%;">
-                                                                            <img class="photoswipe__image lazyautosizes lazyloaded" data-sizes="auto" srcset="<?php echo $img[0] ?> 1080w">
-
-                                                                            <noscript>
-                                                                                <img class="lazyloaded" src="//www.neness-shop.de/cdn/shop/files/WhatsAppImage2023-06-06at19.38.54_9d6e72d7-7330-47f6-b362-493ecc1c2b2f_800x.jpg?v=1692607129" alt="ALLIEN WORLD - 182">
-                                                                            </noscript><button type="button" class="btn btn--secondary btn--circle js-photoswipe__zoom product__photo-zoom" aria-label="Zoom">
-                                                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64">
-                                                                                    <defs>
-                                                                                        <style>
-                                                                                            .cls-1 {
-                                                                                                fill: none;
-                                                                                                stroke: #000;
-                                                                                                stroke-miterlimit: 10;
-                                                                                                stroke-width: 2px
-                                                                                            }
-                                                                                        </style>
-                                                                                    </defs>
-                                                                                    <path class="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42">
-                                                                                    </path>
-                                                                                </svg>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
+                                                                <ol class="flickity-page-dots">
+                                                                    <li class="dot" aria-label="Page dot 1"></li>
+                                                                    <li class="dot" aria-label="Page dot 2"></li>
+                                                                    <li class="dot" aria-label="Page dot 3"></li>
+                                                                    <li class="dot" aria-label="Page dot 4"></li>
+                                                                    <li class="dot is-selected" aria-label="Page dot 5"
+                                                                        aria-current="step"></li>
+                                                                </ol>
                                                             </div>
                                                         </div>
-                                                        <ol class="flickity-page-dots">
-                                                            <li class="dot" aria-label="Page dot 1"></li>
-                                                            <li class="dot" aria-label="Page dot 2"></li>
-                                                            <li class="dot" aria-label="Page dot 3"></li>
-                                                            <li class="dot" aria-label="Page dot 4"></li>
-                                                            <li class="dot is-selected" aria-label="Page dot 5" aria-current="step"></li>
-                                                        </ol>
-                                                    </div>
-                                                </div>
 
-                                                <div data-product-thumbs="" class="product__thumbs product__thumbs--beside product__thumbs-placement--left small--hide" data-position="beside" data-arrows="false">
-                                                    <div class="product__thumbs--scroller">
-                                                        <div class="product__thumb-item" data-index="0">
-                                                            <a href="<?php echo $img[0] ?>" data-product-thumb="" class="product__thumb js-no-transition" data-index="0" data-id="37182818681098">
-                                                                <div class="image-wrap" style="height: 0; padding-bottom: 100.0%;"><img class="lazyautosizes lazyloaded" data-aspectratio="1.0" data-sizes="auto" srcset="<?php echo $img[0] ?> 1080w">
-                                                                    <noscript>
-                                                                        <img class="lazyloaded" src="<?php echo $img[0] ?>" alt="ALLIEN WORLD - 182">
-                                                                    </noscript>
+                                                        <div data-product-thumbs=""
+                                                            class="product__thumbs product__thumbs--beside product__thumbs-placement--left small--hide"
+                                                            data-position="beside" data-arrows="false">
+                                                            <div class="product__thumbs--scroller">
+                                                                <div class="product__thumb-item" data-index="0">
+                                                                    <a href="<?php echo $img[0] ?>" data-product-thumb=""
+                                                                        class="product__thumb js-no-transition" data-index="0"
+                                                                        data-id="37182818681098">
+                                                                        <div class="image-wrap"
+                                                                            style="height: 0; padding-bottom: 100.0%;"><img
+                                                                                class="lazyautosizes lazyloaded"
+                                                                                data-aspectratio="1.0" data-sizes="auto"
+                                                                                srcset="<?php echo $img[0] ?> 1080w">
+                                                                            <noscript>
+                                                                                <img class="lazyloaded" src="<?php echo $img[0] ?>"
+                                                                                    alt="ALLIEN WORLD - 182">
+                                                                            </noscript>
+                                                                        </div>
+                                                                    </a>
                                                                 </div>
-                                                            </a>
-                                                        </div>
 
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
 
-                                        <script type="application/json" id="ModelJson-template--17917053370634__main">
-                                            []
-                                        </script>
-                                    </div>
-                                    <div class="product-grid__content product-single__sticky grid__item medium-up--one-half">
+                                                <script type="application/json" id="ModelJson-template--17917053370634__main">
+                                                                                                    []
+                                                                                                </script>
+                                            </div>
+                                            <div
+                                                class="product-grid__content product-single__sticky grid__item medium-up--one-half">
 
                                         <div class="product-single__meta">
                                             <div class="product-block product-block--header product-single__header small--hide">
@@ -3371,47 +3461,54 @@ $products = get_info_product_by_name($name);
                                                     </a>
 
 
-                                                </div>
-                                                <div class="product-block"></div>
-                                                <div class="product-block product-block--price">
-                                                    <label class="variant__label" for="ProductPrice-template--17917053370634__main">
-                                                        Preis
-                                                    </label><span id="PriceA11y-template--17917053370634__main" class="visually-hidden">Normaler Preis</span><span data-product-price="" class="product__price"><span aria-hidden="true">€25<sup>90</sup></span>
-                                                        <span class="visually-hidden">€25,90</span>
-                                                    </span><span data-save-price="" class="product__price-savings hide"></span>
-                                                    <div data-unit-price-wrapper="" class="product__unit-price"><span data-unit-price=""><span aria-hidden="true">€259<sup>00</sup></span>
-                                                            <span class="visually-hidden">€259,00</span>
-                                                        </span>/<span data-unit-base="">100
-                                                            ml
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-block product-block--sales-point">
-                                                    <ul class="sales-points">
-                                                        <li class="sales-point">
-                                                            <span class="icon-and-text">
-                                                                <span class="icon icon--inventory"></span>
-                                                                <span data-product-inventory="" data-threshold="10">Auf
-                                                                    Lager - 2-3 Tagen bei dir
+                                                        </div>
+                                                        <div class="product-block"></div>
+                                                        <div class="product-block product-block--price">
+                                                            <label class="variant__label"
+                                                                for="ProductPrice-template--17917053370634__main">
+                                                                Preis
+                                                            </label><span id="PriceA11y-template--17917053370634__main"
+                                                                class="visually-hidden">Normaler Preis</span><span
+                                                                data-product-price="" class="product__price"><span
+                                                                    aria-hidden="true">€25<sup>90</sup></span>
+                                                                <span class="visually-hidden">€25,90</span>
+                                                            </span><span data-save-price=""
+                                                                class="product__price-savings hide"></span>
+                                                            <div data-unit-price-wrapper="" class="product__unit-price"><span
+                                                                    data-unit-price=""><span
+                                                                        aria-hidden="true">€259<sup>00</sup></span>
+                                                                    <span class="visually-hidden">€259,00</span>
+                                                                </span>/<span data-unit-base="">100
+                                                                    ml
                                                                 </span>
-                                                            </span>
-                                                        </li>
-                                                        <li data-incoming-inventory="" class="sales-point hide">
-                                                            <span class="icon-and-text">
-                                                                <span class="icon icon--inventory"></span>
-                                                                <span class="js-incoming-text">Inventar auf dem Weg
-                                                                </span>
-                                                            </span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <script>
-                                                    // Store inventory quantities in JS because they're no longer
-                                                    // available directly in JS when a variant changes.
-                                                    // Have an object that holds all potential products so it works
-                                                    // with quick view or with multiple featured products.
-                                                    window.inventories = window.inventories || {};
-                                                    window.inventories['8209898701066'] = {};
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-block product-block--sales-point">
+                                                            <ul class="sales-points">
+                                                                <li class="sales-point">
+                                                                    <span class="icon-and-text">
+                                                                        <span class="icon icon--inventory"></span>
+                                                                        <span data-product-inventory="" data-threshold="10">Auf
+                                                                            Lager - 2-3 Tagen bei dir
+                                                                        </span>
+                                                                    </span>
+                                                                </li>
+                                                                <li data-incoming-inventory="" class="sales-point hide">
+                                                                    <span class="icon-and-text">
+                                                                        <span class="icon icon--inventory"></span>
+                                                                        <span class="js-incoming-text">Inventar auf dem Weg
+                                                                        </span>
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <script>
+                                                            // Store inventory quantities in JS because they're no longer
+                                                            // available directly in JS when a variant changes.
+                                                            // Have an object that holds all potential products so it works
+                                                            // with quick view or with multiple featured products.
+                                                            window.inventories = window.inventories || {};
+                                                            window.inventories['8209898701066'] = {};
 
                                                     window.inventories['8209898701066'][44458038427914] = {
                                                         'quantity': 105,
@@ -3583,32 +3680,32 @@ $products = get_info_product_by_name($name);
                                                 <div class="product-block">
                                                     <div class="rte">
 
-                                                        <meta charset="utf-8">
-                                                        <p>Unser Parfümöl <strong>MARS</strong> ist eine exquisite
-                                                            Kombination aus erdigen, holzigen und würzigen Noten, die ein
-                                                            luxuriöses und unvergessliches Dufterlebnis bieten. Hier sind
-                                                            die Duftnoten in Stichpunkten:</p>
-                                                        <ul>
-                                                            <li>
-                                                                <strong>Kopfnoten:</strong> Zistrose, Rosmarin, Kardamom und
-                                                                brasilianisches Rosenholz
-                                                            </li>
-                                                            <li>
-                                                                <strong>Herznoten:</strong> Oud, Patschuli und Vetiver
-                                                            </li>
-                                                            <li>
-                                                                <strong>Basisnoten:</strong> Tonkabohne, Ambra und
-                                                                Sandelholz
-                                                            </li>
-                                                        </ul>
-                                                        <p>Die Mischung aus diesen reichen und intensiven Noten schafft ein
-                                                            einzigartiges und unwiderstehliches Parfüm, das Ihre Sinne
-                                                            fesseln wird. Unsere Parfümöle sind alle aus hochwertigen,
-                                                            natürlichen Ölen hergestellt und bieten ein lang anhaltendes
-                                                            Dufterlebnis ohne die Austrocknung oder Reizung der Haut, die
-                                                            oft mit Alkohol-basierten Düften verbunden sind. Entdecken Sie
-                                                            unser Parfümöl und tauchen Sie ein in eine Welt voller
-                                                            Raffinesse und Eleganz.</p>
+                                                                <meta charset="utf-8">
+                                                                <p>Unser Parfümöl <strong>MARS</strong> ist eine exquisite
+                                                                    Kombination aus erdigen, holzigen und würzigen Noten, die ein
+                                                                    luxuriöses und unvergessliches Dufterlebnis bieten. Hier sind
+                                                                    die Duftnoten in Stichpunkten:</p>
+                                                                <ul>
+                                                                    <li>
+                                                                        <strong>Kopfnoten:</strong> Zistrose, Rosmarin, Kardamom und
+                                                                        brasilianisches Rosenholz
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>Herznoten:</strong> Oud, Patschuli und Vetiver
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>Basisnoten:</strong> Tonkabohne, Ambra und
+                                                                        Sandelholz
+                                                                    </li>
+                                                                </ul>
+                                                                <p>Die Mischung aus diesen reichen und intensiven Noten schafft ein
+                                                                    einzigartiges und unwiderstehliches Parfüm, das Ihre Sinne
+                                                                    fesseln wird. Unsere Parfümöle sind alle aus hochwertigen,
+                                                                    natürlichen Ölen hergestellt und bieten ein lang anhaltendes
+                                                                    Dufterlebnis ohne die Austrocknung oder Reizung der Haut, die
+                                                                    oft mit Alkohol-basierten Düften verbunden sind. Entdecken Sie
+                                                                    unser Parfümöl und tauchen Sie ein in eine Welt voller
+                                                                    Raffinesse und Eleganz.</p>
 
                                                     </div>
                                                 </div>
@@ -3798,30 +3895,14 @@ $products = get_info_product_by_name($name);
                     </div>
 
 
-                </div>
-                <section id="shopify-section-template--17917053370634__loox-product-reviews-app-section" class="shopify-section">
-                    <div class="index-section">
-                        <div class="page-width">
-                            <div id="shopify-block-loox-product-reviews" class="shopify-block shopify-app-block">
-                                <div style="margin:0 auto;max-width:1080px;">
-                                    <iframe id="frame" src="/review.php?name=<?= $name ?>" frameborder="0"></iframe>
-                                </div>
-                                <script>
-                                    $(document).ready(function() {
-
-                                        function setIframeHeight() {
-                                            var windowHeight = $(window).height();
-                                            $("#frame").css("width", windowHeight + "px");
-                                            $("#frame").css("height", windowHeight + "px");
-                                        }
-
-                                        setIframeHeight();
-                                        $(window).resize(function() {
-                                            setIframeHeight();
-
-                                        });
-                                    });
-                                </script>
+                        </div>
+                        <section id="shopify-section-template--17917053370634__loox-product-reviews-app-section"
+                            class="shopify-section">
+                            <div class="index-section">
+                                <div class="page-width">
+                                    <div id="shopify-block-loox-product-reviews" class="shopify-block shopify-app-block">
+                                        <div id="looxReviews" data-limit="20" data-product-id="8209898701066"
+                                            style="margin:0 auto;max-width:1080px;"></div>
 
                             </div>
                         </div>

@@ -206,6 +206,7 @@ session_start();
           }())
         }
       })();
+
       function GDPR_LC_Token() {
         var getToken = {
           "tokenLength": 8,
@@ -2369,239 +2370,365 @@ session_start();
 
 
     </div>
-    <?php if ($_SESSION['cart'] != null) { ?>
-          <main class="main-content" id="MainContent">
-            <div id="shopify-section-template--17917049241866__main" class="shopify-section">
-              <div class="page-width page-width--cart page-content">
-                <header class="section-header text-center">
-                  <h1 class="section-header__title">Einkaufswagen</h1>
-                  <div class="rte text-spacing"></div>
-                </header>
-                <form action="/cart" method="post" novalidate="" data-location="page" id="CartPageForm">
-                  <div class="cart__page">
-                    <div class="cart__page-col">
-                      <div data-products="">
-                      <?php  foreach($_SESSION['cart'] as $cart_el) { 
-                              $product = get_info_product_by_name($cart_el);
-                              
-                        ?>
-                        <div class="cart__item" data-key="44458065821962:35ad46600b6b2098efd20ceb16b8486d">
-                          <div class="cart__image">
-                            <a href="/products/stardust-roll-on-100-parfumol?variant=44458065821962" class="image-wrap">
-                              <img class="lazyautosizes lazyloaded" data-widths="[180, 360, 540]" data-aspectratio="" data-sizes="auto" alt="STARDUST - 100% Parfümöl" data-srcset="//www.neness-shop.de/cdn/shop/products/montaz_star_AO_180x.jpg?v=1679649839 180w, //www.neness-shop.de/cdn/shop/products/montaz_star_AO_360x.jpg?v=1679649839 360w, //www.neness-shop.de/cdn/shop/products/montaz_star_AO_540x.jpg?v=1679649839 540w" sizes="150px" srcset="<?php echo get_src_photo($product['name'])[0] ?>">
-                              <noscript>
-                                <img class="lazyloaded" src="" alt="STARDUST - 100% Parfümöl">
-                              </noscript>
+    <?php if (isset($_SESSION['cart']) && $_SESSION['cart'] != null) { ?>
+      <main class="main-content" id="MainContent">
+        <div id="shopify-section-template--17917049241866__main" class="shopify-section">
+          <div class="page-width page-width--cart page-content">
+            <header class="section-header text-center">
+              <h1 class="section-header__title">Einkaufswagen</h1>
+              <div class="rte text-spacing"></div>
+            </header>
+            <form action="/cart" method="post" novalidate="" data-location="page" id="CartPageForm">
+              <div class="cart__page">
+                <div class="cart__page-col">
+                  <div data-products="">
+                    <?php
+                    $carts = array_unique($_SESSION['cart']);
+
+                    // Получаем количество каждого элемента в $_SESSION['cart']
+                    $counts = array_count_values($_SESSION['cart']);
+
+                    foreach ($carts as $cart_el) {
+                      $product = get_info_product_by_name($cart_el);
+
+                    ?>
+                      <div class="cart__item" data-key="44458065821962:35ad46600b6b2098efd20ceb16b8486d">
+                        <div class="cart__image">
+                          <a href="/collections/<?php echo $product['collection'] ?>/products/<?php echo $product['name'] ?>" class="image-wrap">
+                            <img class="lazyautosizes lazyloaded" data-widths="[180, 360, 540]" data-aspectratio="" data-sizes="auto" alt="STARDUST - 100% Parfümöl" data-srcset="//www.neness-shop.de/cdn/shop/products/montaz_star_AO_180x.jpg?v=1679649839 180w, //www.neness-shop.de/cdn/shop/products/montaz_star_AO_360x.jpg?v=1679649839 360w, //www.neness-shop.de/cdn/shop/products/montaz_star_AO_540x.jpg?v=1679649839 540w" sizes="150px" srcset="<?php echo get_src_photo($product['name'])[0] ?>">
+                            <noscript>
+                              <img class="lazyloaded" src="" alt="STARDUST - 100% Parfümöl">
+                            </noscript>
+                          </a>
+                        </div>
+                        <div class="cart__item-details">
+                          <div class="cart__item-title">
+                            <a href="/collections/<?php echo $product['collection'] ?>/products/<?php echo $product['name'] ?>" class="cart__item-name">
+                              <?php echo $product['title'] ?>
                             </a>
+                            <div class="loox-rating" data-id="44458065821962" data-rating="" data-raters=""></div>
+
+
+
+
                           </div>
-                          <div class="cart__item-details">
-                            <div class="cart__item-title">
-                              <a href="/products/stardust-roll-on-100-parfumol?variant=44458065821962" class="cart__item-name">
-                                <?php echo $product['title']?>
-                              </a>
-                              <div class="loox-rating" data-id="44458065821962" data-rating="" data-raters=""></div>
+                          <div class="cart__item-sub">
+                            <div>
+                              <div class="js-qty__wrapper">
+                                <label for="cart_updates_44458065821962:35ad46600b6b2098efd20ceb16b8486d" class="hidden-label">Menge</label>
+                                <input type="text" id="counter" class="js-qty__num" value="<?php echo $counts[$cart_el] ?>" min="0" pattern="[0-9]*">
+                                <button type="button" class="js-qty__adjust js-qty__adjust--minus" aria-label="Artikelmenge um eins reduzieren" id="minus_<?php echo $product['name'] ?>">
+                                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-minus" viewBox="0 0 64 64">
+                                    <path class="cls-1" d="M55 32H9"></path>
+                                  </svg>
+                                  <span class="icon__fallback-text" aria-hidden="true">−</span>
+                                </button>
+                                <button type="button" class="js-qty__adjust js-qty__adjust--plus" id="plus_<?php echo $product['name'] ?>">
+                                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-plus" viewBox="0 0 64 64">
+                                    <path class="cls-1" d="M32 9v46m23-23H9"></path>
+                                  </svg>
+                                  <span class="icon__fallback-text" aria-hidden="true">+</span>
+                                </button>
+                              </div>
+                              <script></script>
+                              <div class="cart__remove" id="remove_<?php echo $product['name'] ?>">
+                                <a href="" class="text-link">
+                                  Entfernen
+                                </a>
+
+                              </div>
+                              <script>
+                                //сделай удаление из корзины также как и снизу
+
+                                var remove = document.getElementById('remove_<?php echo $product['name'] ?>');
+                                remove.addEventListener('click', function() {
+                                  $.ajax({
+                                    url: "delete_card.php",
+                                    type: 'POST',
+
+                                    data: {
+                                      cart: '<?php echo $product['name'] ?>',
+                                      type: 'all'
+                                    },
+                                    success: function(data) {
+                                      console.log(data)
+                                      if (data != 'Success') {
+                                        console.log('Error')
+                                      } else {
+                                        console.log('Success')
+                                        window.location.reload();
+                                      }
+                                    },
+                                    error: function(error) {
+                                      console.log(error)
+                                    }
+                                  })
+                                })
+                              </script>
+                              <script>
+                                //сделай счетчик
+
+                                var plus = document.getElementById('plus_<?php echo $product['name'] ?>');
+                                var minus = document.getElementById('minus_<?php echo $product['name'] ?>');
+                                var input = document.getElementById('counter');
+                                var count = <?php echo $counts[$cart_el] ?>;
+                                plus.addEventListener('click', function() {
+                                  $.ajax({
+                                    url: "add_cart.php",
+                                    type: 'POST',
+
+                                    data: {
+                                      cart: '<?php echo $product['name'] ?>'
+                                    },
+                                    success: function(data) {
+                                      console.log(data)
+                                      if (data != 'Success') {
+                                        console.log('Error')
+                                      } else {
+                                        console.log('Success')
+                                        window.location.reload();
+                                      }
+                                    },
+                                    error: function(error) {
+                                      console.log(error)
 
 
+                                    }
+                                  })
+                                  count++;
+                                  input.value = count;
+                                });
+                                minus.addEventListener('click', function() {
+                                  $.ajax({
+                                    url: "delete_card.php",
+                                    type: 'POST',
+                                    data: {
+                                      cart: '<?php echo $product['name'] ?>',
+                                      type: 'single'
+                                    },
+                                    success: function(data) {
+                                      console.log(data)
+                                      if (data != 'Success') {
+                                        console.log('Error')
+                                      } else {
+                                        console.log('Success')
+                                        window.location.reload();
+                                      }
+                                    },
+                                    error: function(error) {
+                                      console.log(error)
 
 
+                                    }
+                                  })
+                                  count++;
+                                  input.value = count;
+                                  if (count > 1) {
+                                    count--;
+                                    input.value = count;
+                                  }
+                                });
+                              </script>
                             </div>
-                            <div class="cart__item-sub">
-                              <div>
-                                <div class="js-qty__wrapper">
-                                  <label for="cart_updates_44458065821962:35ad46600b6b2098efd20ceb16b8486d" class="hidden-label">Menge</label>
-                                  <input type="text" id="cart_updates_44458065821962:35ad46600b6b2098efd20ceb16b8486d" name="updates[]" class="js-qty__num" value="1" min="0" pattern="[0-9]*" data-id="44458065821962:35ad46600b6b2098efd20ceb16b8486d">
-                                  <button type="button" class="js-qty__adjust js-qty__adjust--minus" aria-label="Artikelmenge um eins reduzieren">
-                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-minus" viewBox="0 0 64 64">
-                                      <path class="cls-1" d="M55 32H9"></path>
-                                    </svg>
-                                    <span class="icon__fallback-text" aria-hidden="true">−</span>
-                                  </button>
-                                  <button type="button" class="js-qty__adjust js-qty__adjust--plus" aria-label="Artikelmenge um eins erhöhen">
-                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-plus" viewBox="0 0 64 64">
-                                      <path class="cls-1" d="M32 9v46m23-23H9"></path>
-                                    </svg>
-                                    <span class="icon__fallback-text" aria-hidden="true">+</span>
-                                  </button>
-                                </div>
 
-                                <div class="cart__remove">
-                                  <a href="" class="text-link">
-                                    Entfernen
-                                  </a>
-                                  
-                                </div>
-                                <script>
-                                  
-                                </script>
-                              </div>
+                            <div class="cart__item-price-col text-right">
 
-                              <div class="cart__item-price-col text-right">
-
-                                <span class="cart__price"><span aria-hidden="true">€25<sup>90</sup></span>
-                                  <span class="visually-hidden">€25,90</span>
+                              <span class="cart__price"><span aria-hidden="true">
+                                  <?php $string = $product['price'];
+                                  if (strpos($string, '.') !== false) {
+                                    list($part1, $part2) = explode(".", $string);
+                                  } else {
+                                    $part1 = $string;
+                                    $part2 = "";
+                                  }
+                                  ?>
+                                  €
+                                  <?php echo $part1 ?><sup>
+                                    <?php echo $part2 ?>
+                                  </sup>
                                 </span>
+                                <span class="visually-hidden">€
+                                  <?php if ($product['price']) ?>
+                                </span></span>
 
-                                <span class="product__unit-price">€259,00/<span class="product__unit-base--">100
-                                    ml
-                                  </span></span>
-                              </div>
+                              </span>
+
+                              <span class="product__unit-price">€
+                                <?php echo $product['container'] ?> ml
+
+                              </span>
                             </div>
                           </div>
                         </div>
-                        
-                        <?php }?>
                       </div>
-                      <div class="cart__item-row cart-recommendations" data-location="page">
-                        <div class="h3 h3--mobile cart__recommended-title">Mehr parfumlys, mehr sparen:</div>
-                        <div class="new-grid product-grid scrollable-grid--small" data-view="small">
-                          <?php
-                          $products = getShuffledTopViewsProducts('proben');
-                          foreach ($products as $product) {
-                            ?>
-                                <div class="grid-item grid-product " data-product-handle="allien-world" data-product-id="7233940455619">
-                                  <div class="grid-item__content"><a href="collections/<?php echo $product['collection'] ?>/products/<?php echo $product['name'] ?>" class="grid-item__link">
-                                      <div class="grid-product__image-wrap">
-                                        <div class="grid-product__tags"></div>
-                                        <div class="grid__image-ratio grid__image-ratio--square">
-                                          <img class="lazyload grid__image-contain" <?php
-                                          $bool = true;
-                                          $data = json_decode($product['img'], true);
-                                          foreach ($data as $item) {
-                                            if (isset($item['file_path'])) {
-                                              $filePath = $item['file_path'];
-                                              if ($bool) {
-                                                echo 'data-src="' . $filePath . '"';
-                                                $bool = false;
-                                                continue;
-                                              } ?> data-widths="[160, 200, 280, 360, 540, 720, 900]" data-aspectratio="1.0" data-sizes="auto" alt="">
-                                                  <noscript>
-                                                    <img class="grid-product__image lazyloaded" src="cdn/shop/files/182AC_21574842-1388-475e-9366-ca6775eec26d_400x.jpg?v=1691797892" alt="">
-                                                  </noscript>
-                                                </div>
-                                                <div class="grid-product__secondary-image small--hide">
-                                                  <img class="lazyload" data-src="<?php echo $filePath;
-                                                  break;
-                                            }
-                                          } ?>" data-widths="[360, 540, 720, 1000]" data-aspectratio="1.0" data-sizes="auto" alt="">
-                                        </div>
-                                      </div>
 
-                                      <div class="grid-item__meta">
-                                        <div class="grid-item__meta-main">
-                                          <div class="grid-product__title"><?php echo $product['title'] ?></div>
-                                        </div>
-                                        <div class="loox-rating" data-id="7233940455619" data-rating="4.8" data-raters="341"></div>
-                                        <div class="grid-item__meta-secondary">
-                                          <div class="grid-product__price"><span class="grid-product__price--current"><span aria-hidden="true">
-                                                <?php $string = $product['price'];
-                                                if (strpos($string, '.') !== false) {
-                                                  list($part1, $part2) = explode(".", $string);
-                                                } else {
-                                                  $part1 = $string;
-                                                  $part2 = "";
-                                                }
-                                                ?>
-                                                € <?php echo $part1 ?><sup><?php echo $part2 ?></sup></span>
-                                              <span class="visually-hidden">€
-                                                <?php if ($product['price']) ?>
-                                              </span>
-                                            </span>
-                                            <div class="product__unit-price">€ <?php echo $product['container'] ?> ml
+                    <?php
 
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </a>
+                      $price1 = $product['price'];
+                      $count1 = $counts[$cart_el];
+                      $sum1 +=  $price1 * $count1;
+                    } ?>
+                  </div>
+                  <div class="cart__item-row cart-recommendations" data-location="page">
+                    <div class="h3 h3--mobile cart__recommended-title">Mehr parfumlys, mehr sparen:</div>
+                    <div class="new-grid product-grid scrollable-grid--small" data-view="small">
+                      <?php
+                      $products = getShuffledTopViewsProducts('proben');
+                      foreach ($products as $product) {
+                      ?>
+                        <div class="grid-item grid-product " data-product-handle="allien-world" data-product-id="7233940455619">
+                          <div class="grid-item__content"><a href="collections/<?php echo $product['collection'] ?>/products/<?php echo $product['name'] ?>" class="grid-item__link">
+                              <div class="grid-product__image-wrap">
+                                <div class="grid-product__tags"></div>
+                                <div class="grid__image-ratio grid__image-ratio--square">
+                                  <img class="lazyload grid__image-contain" <?php $bool = true;
+                                                                            $data = json_decode($product['img'], true);
+                                                                            foreach ($data as $item) {
+                                                                              if (isset($item['file_path'])) {
+                                                                                $filePath = $item['file_path'];
+                                                                                if ($bool) {
+                                                                                  echo 'data-src="' . $filePath . '"';
+                                                                                  $bool = false;
+                                                                                  continue;
+                                                                                } ?> data-widths="[160,
+                              200, 280, 360, 540, 720, 900]" data-aspectratio="1.0" data-sizes="auto" alt="">
+                                  <noscript>
+                                    <img class="grid-product__image lazyloaded" src="cdn/shop/files/182AC_21574842-1388-475e-9366-ca6775eec26d_400x.jpg?v=1691797892" alt="">
+                                  </noscript>
+                                </div>
+                                <div class="grid-product__secondary-image small--hide">
+                                  <img class="lazyload" data-src="<?php echo $filePath;
+                                                                                break;
+                                                                              }
+                                                                            } ?>" data-widths="[360, 540, 720, 1000]" data-aspectratio="1.0" data-sizes="auto" alt="">
+                                </div>
+                              </div>
+
+                              <div class="grid-item__meta">
+                                <div class="grid-item__meta-main">
+                                  <div class="grid-product__title">
+                                    <?php echo $product['title'] ?>
                                   </div>
                                 </div>
-                          <?php } ?>
+                                <div class="loox-rating" data-id="7233940455619" data-rating="4.8" data-raters="341"></div>
+                                <div class="grid-item__meta-secondary">
+                                  <div class="grid-product__price"><span class="grid-product__price--current"><span aria-hidden="true">
+                                        <?php $string = $product['price'];
+                                        if (strpos($string, '.') !== false) {
+                                          list($part1, $part2) = explode(".", $string);
+                                        } else {
+                                          $part1 = $string;
+                                          $part2 = "";
+                                        }
+                                        ?>
+                                        €
+                                        <?php echo $part1 ?><sup>
+                                          <?php echo $part2 ?>
+                                        </sup>
+                                      </span>
+                                      <span class="visually-hidden">€
+                                        <?php if ($product['price']) ?>
+                                      </span>
+                                    </span>
+                                    <div class="product__unit-price">€
+                                      <?php echo $product['container'] ?> ml
 
-                        </div>
-                      </div>
-                    </div>
-                    <div class="cart__page-col">
-
-
-                      <div class="cart__item-sub cart__item-row cart__item--subtotal">
-                        <div>Zwischensumme</div>
-                        <div data-subtotal=""><span aria-hidden="true">€25<sup>90</sup></span>
-                          <span class="visually-hidden">€25,90</span>
-                        </div>
-                      </div>
-
-                      <div data-discounts="">
-
-                      </div>
-
-
-
-                      <div class="cart__item-row cart__checkout-wrapper">
-                        <div class="scDiscount__container">
-                          <div id="scDiscountApp" class="scDiscount scright ">
-                            <div style="width: 550px;">
-                              <div>
-                                <form>
-                                  <div class="sc_simple-container sc_simple-container--initial"><input type="text" id="code" name="code" class="sc-cube-text sc-cube-code" placeholder="Rabattcode eingeben" autocomplete="off" style="border-color: rgb(0, 0, 0); color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
-                                    <div class="sc_code-btn sc_state-initial"><input type="button" id="submit" value="Einlösen" style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 0); border: 1px solid rgb(0, 0, 0);">
-                                      <div class="sc_code-loading" style="background: rgb(0, 0, 0);"><svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling">
-                                          <circle cx="50" cy="50" fill="none" stroke-width="7" r="25" stroke-dasharray="117.80972450961724 41.269908169872416" transform="rotate(47.1629 50 50)" style="stroke: rgb(255, 255, 255);">
-                                            <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform>
-                                          </circle>
-                                        </svg></div>
                                     </div>
                                   </div>
-                                </form>
+                                </div>
                               </div>
-                            </div>
+                            </a>
                           </div>
                         </div>
-                        <div class="gfgPageWrapper gfgCartPageWrapperV2">
-                          <div class="gftFreeGiftWrapper"></div>
-                          <div class="gfgVolDiscountWrapper"></div>
-                        </div><button type="submit" name="checkout" data-terms-required="false" class="btn cart__checkout">
-                          Jetzt sicher zur Kasse
-                        </button>
+                      <?php } ?>
 
-
-
-                        <a href="/collections/all" class="btn btn--secondary cart__continue">
-                          Einkaufen Sie weiter
-                        </a>
-                      </div>
-
-                      <div class="cart__item-row text-center">
-                        <small>inkl. MwSt. &amp; zzgl. Versandkosten</small>
-                      </div>
                     </div>
                   </div>
-                  <input type="hidden" name="discount" value="">
-                </form>
+                </div>
+                <div class="cart__page-col">
+
+
+                  <div class="cart__item-sub cart__item-row cart__item--subtotal">
+                    <div>Zwischensumme</div>
+                    <div data-subtotal=""><span aria-hidden="true">€
+                        <?php echo $sum1 ?></sup>
+                      </span>
+                      <span class="visually-hidden">€25,90</span>
+                    </div>
+                  </div>
+
+                  <div data-discounts="">
+
+                  </div>
+
+
+
+                  <div class="cart__item-row cart__checkout-wrapper">
+                    <div class="scDiscount__container">
+                      <div id="scDiscountApp" class="scDiscount scright ">
+                        <div style="width: 550px;">
+                          <div>
+                            <form>
+                              <div class="sc_simple-container sc_simple-container--initial"><input type="text" id="code" name="code" class="sc-cube-text sc-cube-code" placeholder="Rabattcode eingeben" autocomplete="off" style="border-color: rgb(0, 0, 0); color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                                <div class="sc_code-btn sc_state-initial"><input type="button" id="submit" value="Einlösen" style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 0); border: 1px solid rgb(0, 0, 0);">
+                                  <div class="sc_code-loading" style="background: rgb(0, 0, 0);"><svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling">
+                                      <circle cx="50" cy="50" fill="none" stroke-width="7" r="25" stroke-dasharray="117.80972450961724 41.269908169872416" transform="rotate(47.1629 50 50)" style="stroke: rgb(255, 255, 255);">
+                                        <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform>
+                                      </circle>
+                                    </svg></div>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="gfgPageWrapper gfgCartPageWrapperV2">
+                      <div class="gftFreeGiftWrapper"></div>
+                      <div class="gfgVolDiscountWrapper"></div>
+                    </div><button type="submit" name="checkout" data-terms-required="false" class="btn cart__checkout">
+                      Jetzt sicher zur Kasse
+                    </button>
+
+
+
+                    <a href="/collections/all" class="btn btn--secondary cart__continue">
+                      Einkaufen Sie weiter
+                    </a>
+                  </div>
+
+                  <div class="cart__item-row text-center">
+                    <small>inkl. MwSt. &amp; zzgl. Versandkosten</small>
+                  </div>
+                </div>
               </div>
+              <input type="hidden" name="discount" value="">
+            </form>
+          </div>
 
 
-            </div>
-          </main>
+        </div>
+      </main>
 
     <?php } else { ?>
-          <main class="main-content" id="MainContent">
-            <div id="shopify-section-template--17917049241866__main" class="shopify-section">
-              <div class="page-width page-width--cart page-content">
-                <header class="section-header text-center section-header--404">
-                  <h1 class="section-header__title">Einkaufswagen</h1>
-                  <div class="rte text-spacing">
-                    <p>Ihr Einkaufswagen ist im Moment leer.</p>
-                    <hr class="hr--clear hr--small">
-                    <p>
-                      <a href="/" class="btn">Einkaufen Sie weiter</a>
-                    </p>
-                  </div>
-                </header>
+      <main class="main-content" id="MainContent">
+        <div id="shopify-section-template--17917049241866__main" class="shopify-section">
+          <div class="page-width page-width--cart page-content">
+            <header class="section-header text-center section-header--404">
+              <h1 class="section-header__title">Einkaufswagen</h1>
+              <div class="rte text-spacing">
+                <p>Ihr Einkaufswagen ist im Moment leer.</p>
+                <hr class="hr--clear hr--small">
+                <p>
+                  <a href="/" class="btn">Einkaufen Sie weiter</a>
+                </p>
               </div>
+            </header>
+          </div>
 
 
-            </div>
-          </main>
+        </div>
+      </main>
     <?php } ?>
     <div id="shopify-section-footer-promotions" class="shopify-section index-section--footer">
     </div>
@@ -3622,6 +3749,7 @@ session_start();
         </g>
       </svg>
     </div>
+
     <div id="cookie-banner_flag__infotext">
       Cookies
     </div>
@@ -4528,5 +4656,22 @@ session_start();
 
   </div>
 </body>
+<script>
+  //Сделай вычисление общей суммы
+  var sum = 0;
+  var price = document.querySelectorAll('.cart__price');
+  price.forEach(function(item) {
+    var str = item.innerText;
+    var arr = str.split('€');
+    var num = arr[1].split(',');
+    sum += parseInt(num[0]);
+  })
+  var subtotal = document.querySelector('[data-subtotal]');
+  subtotal.innerHTML = '<span aria-hidden="true">€' + sum + '<sup>90</sup></span><span class="visually-hidden">€' + sum + ',90</span>';
+  var total = document.querySelector('[data-total]');
+  total.innerHTML = '<span aria-hidden="true">€' + sum + '<sup>90</sup></span><span class="visually-hidden">€' + sum + ',90</span>';
+  //Сделай вычисление общей суммы
+</script>
+<?php include 'cart_template.php'?>
 
 </html>

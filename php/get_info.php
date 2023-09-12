@@ -236,6 +236,7 @@ function addToCart($productName)
 {
   $_SESSION['cart'][] = ['name' => $productName];
 }
+<<<<<<< HEAD
 function show_reviews($name)
 {
   global $mysql;
@@ -285,3 +286,48 @@ function show_reviews($name)
   return $result;
 }
 
+=======
+
+
+
+function getTopThreeProductsByCollectionsAndViews() {
+  global $mysql;
+
+// SQL-запрос для получения 3 самых просматриваемых товаров с разными значениями collections
+$query = "SELECT DISTINCT collection, MAX(views) AS max_views 
+          FROM products 
+          GROUP BY collection 
+          ORDER BY max_views DESC 
+          LIMIT 3";
+
+$result = $mysql->query($query);
+
+if (!$result) {
+    die("Ошибка выполнения запроса: " . $mysql->error);
+}
+
+$products = array();
+
+while ($row = $result->fetch_assoc()) {
+    $collection = $row['collection'];
+
+    // Дополнительный запрос для выбора товара с максимальным количеством просмотров в данной коллекции
+    $subquery = "SELECT * FROM products WHERE collection = '$collection' ORDER BY views DESC LIMIT 1";
+    $subresult = $mysql->query($subquery);
+
+    if (!$subresult) {
+        die("Ошибка выполнения запроса: " . $mysql->error);
+    }
+
+    if ($subrow = $subresult->fetch_assoc()) {
+        $products[] = $subrow;
+    }
+}
+
+// Перемешать массив товаров
+shuffle($products);
+
+return $products;
+
+}
+>>>>>>> 576f6ccf25df5fc8eec150d01622e4923f3ca4f4
