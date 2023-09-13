@@ -3457,7 +3457,7 @@ $img = get_src_photo($name);
                                             <div data-product-blocks="">
                                                 <div id="shopify-block-loox-rating" class="shopify-block shopify-app-block">
                                                     <a href="#looxReviews">
-                                                        <div class="loox-rating" data-content-size="16" data-loox-block-id="loox-rating" data-color-text="" data-color-star="" data-id="8209898701066" data-rating="5.0" data-raters="4"></div>
+                                                        
                                                     </a>
 
 
@@ -3901,8 +3901,25 @@ $img = get_src_photo($name);
                             <div class="index-section">
                                 <div class="page-width">
                                     <div id="shopify-block-loox-product-reviews" class="shopify-block shopify-app-block">
-                                        <div id="looxReviews" data-limit="20" data-product-id="8209898701066"
-                                            style="margin:0 auto;max-width:1080px;"></div>
+                                        <div >
+                                            <iframe id="frame" style="border: none;" src="/review.php?name=<?= $name ?>"></iframe>
+                                                    <script>
+                                                        $(document).ready(function() {
+
+                                                            function setIframeSize() {
+                                                                var windowWidth = $(window).width();
+                                                                var windowHeight = $(window).height();
+                                                                $("#frame").css("width", windowWidth + "px");
+                                                                $("#frame").css("height", windowHeight + "px");
+
+                                                            }
+
+                                                            setIframeSize();
+                                                            $(window).resize(function() {
+                                                                setIframeSize();
+                                                            });
+                                                        });
+                                                    </script></div>
 
                             </div>
                         </div>
